@@ -1,0 +1,59 @@
+<?php
+abstract class family
+{
+	protected $name;
+	protected $height;
+	protected $weight;
+	protected $bDay;
+	
+	public __construct($pName = "" ,$pHeight= 0 ,$pWeight = 0)
+	{
+		$this->setName($pName);
+		$this->setHeight($pHeight);
+		$this->setWeight($pWeight);
+		$this->setbDay($pbDay);
+	}
+	public function getName(){return $this->name;}
+	public function setName()
+	{
+		if ($pName.length>0)
+			$this->name = $pName;
+	}
+	public function getHeight(){return $this->height;}
+	public function setHeight()
+	{
+		if ($pHeight > 0)
+			$this->height = $pHeight;
+	}
+	public function getWeight(){return $this->weight;}
+	public function setWeight()
+	{
+		if ($pWeight > 0 && $pWeight < 300)
+			$this->weight = $pWeight;
+	}
+	public function getbDay(){return $this->bDay;}
+	public function setbDay()
+	{
+		if ($pbDay.length == 4)
+			$this->bDay = $pbDay;
+	}
+	abstract public function DisplayPerson();
+	
+	public function calculateAge()
+	{
+		$age=0;
+		$todayDate= new DateTime();
+		$todayDate = format('Y');
+		$age = $todayDate - this->bDay;
+		return $age;
+	}
+}
+
+class newMember extends family
+{
+	private memberType;
+	private memberTown;
+	private memberJob;
+}
+
+?>
